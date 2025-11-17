@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>리워드몰 사전예약 - 130% 리워드</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="page-container">
+            <!-- 상단 리본 -->
+            <div class="top-ribbon">
+                <div class="ribbon-content">
+                    <span style="font-weight: 600">파트너스</span>: 사전예약자
+                    한정 ·
+                    <span
+                        style="
+                            text-decoration: underline;
+                            text-underline-offset: 2px;
+                        "
+                        >12/31 종료 후 영구 마감</span
+                    >
+                    ·
+                    <span style="margin-left: 0.25rem"
+                        >사전예약 1건당 고유번호 1개(다회 양도, 승인 필요) ·
+                        안전거래 플랫폼 예정</span
+                    >
+                    <br />
+                    <a href="#partners" class="ribbon-link">자세히 보기</a>
+                    <a href="#lookup" class="ribbon-link">코드조회</a>
+                </div>
+            </div>
+
+            <!-- 모바일 하단 CTA -->
+            <div class="mobile-sticky-cta">
+                <div class="mobile-cta-inner">
+                    <div
+                        style="
+                            background-color: #0f9ccf;
+                            border-radius: 1rem;
+                            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                        "
+                    >
+                        <button onclick="showModal()" class="mobile-cta-button">
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                            ₩110,000 사전예약하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 히어로 섹션 -->
+            <section class="hero-section">
+                <svg
+                    style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        z-index: -10;
+                        opacity: 0.06;
+                        pointer-events: none;
+                    "
+                    aria-hidden="true"
+                >
+                    <defs>
+                        <pattern
+                            id="grid"
+                            width="24"
+                            height="24"
+                            patternUnits="userSpaceOnUse"
+                        >
+                            <path
+                                d="M24 0H0v24"
+                                fill="none"
+                                stroke="#0f9ccf"
+                                stroke-width="1"
+                            />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
+                <div class="hero-bg-gradient"></div>
+                <div class="hero-content">
+                    <div class="hero-grid">
+                        <div class="hero-left">
+                            <div class="hero-badge">
+                                <div style="margin-bottom: 0.5rem">
+                                    사전예약 진행중 · 2025-11-19 → 2025-12-31
+                                </div>
+                                <div class="countdown-badge">
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        style="
+                                            opacity: 0.7;
+                                            color: #0f9ccf;
+                                            flex-shrink: 0;
+                                        "
+                                    >
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline
+                                            points="12 6 12 12 16 14"
+                                        ></polyline>
+                                    </svg>
+                                    <span
+                                        id="countdown"
+                                        class="countdown-container"
+                                    ></span>
+                                </div>
+                            </div>
+                            <h1 class="hero-title">
+                                부자처럼 하는 쇼핑
+                                <br style="display: none" />
+                                <span class="hero-title-highlight"
+                                    >130% 리워드</span
+                                >를 제공하는 새로운 리워드 커머스
+                            </h1>
+                            <div class="pill-container">
+                                <span class="pill">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="18"
+                                        height="18"
+                                        aria-hidden="true"
+                                        style="opacity: 0.8"
+                                    >
+                                        <path
+                                            d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3z"
+                                        />
+                                        <path
+                                            d="M8 13c-2.67 0-8 1.34-8 4v2h10v-2c0-.73.21-1.41.58-2.02C10.08 13.74 8.84 13 8 13zM16 13c-.84 0-2.08.74-2.58 1.98.37.61.58 1.29.58 2.02v2h10v-2c0-2.66-5.33-4-8-4z"
+                                        />
+                                    </svg>
+                                    그룹 5인 동시 달성
+                                </span>
+                                <span class="pill">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="18"
+                                        height="18"
+                                        aria-hidden="true"
+                                        style="opacity: 0.8"
+                                    >
+                                        <path
+                                            d="M20 6L9 17l-5-5"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                    사전예약자 전용 파트너스
+                                </span>
+                                <span class="pill">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="18"
+                                        height="18"
+                                        aria-hidden="true"
+                                        style="opacity: 0.8"
+                                    >
+                                        <path
+                                            d="M12 2l7 3v6c0 5-3.5 9.74-7 11-3.5-1.26-7-6-7-11V5l7-3z"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        />
+                                    </svg>
+                                    안전거래 플랫폼 예정
+                                </span>
+                            </div>
+                            <p class="hero-description">
+                                과도한 쿠폰 경쟁 대신 회사의 마진을 최소화하고
+                                <strong>페이백해 누적 적립</strong>하여
+                                <strong>최대 130%</strong>의 리워드를
+                                돌려드립니다. 사전예약 기간 동안
+                                <strong>예약해 두시면</strong> 론칭 시점에
+                                <strong>동일 금액 바우처로 자동 전환</strong
+                                >되고, 사전예약 고객 전용
+                                <strong>우선 혜택</strong>이 제공되며 사전예약
+                                <strong>1건당 1건의 파트너스 고유번호</strong>가
+                                지급됩니다.
+                            </p>
+                            <div class="alert-box">
+                                <div class="alert-title">
+                                    파트너스 신청 안내 (중요)
+                                </div>
+                                <div class="alert-content">
+                                    파트너스는
+                                    <b>사전예약 기간(2025-11-19~2025-12-31)</b
+                                    >에 <b>사전예약을 완료한 회원</b>만
+                                    신청·승인됩니다.
+                                    <u
+                                        >사전예약 종료 후에는 파트너스 신규
+                                        모집을 영구 종료</u
+                                    >합니다. 사전예약
+                                    <b>수량당 1개의 파트너 고유번호</b>가
+                                    부여되며,
+                                    <b>운영사 승인 하에 다회 양도</b>가
+                                    가능합니다.
+                                </div>
+                            </div>
+                            <div class="disclaimer">
+                                ※ 본 페이지는 제품군, 약관, 세부 정산 로직 확정
+                                전의 제안용 시안입니다. 실제 론칭 전 최종
+                                약관/개인정보 처리방침과 함께 공시됩니다.
+                            </div>
+                            <div
+                                style="
+                                    display: none;
+                                    align-items: center;
+                                    gap: 0.5rem;
+                                    margin-top: 2rem;
+                                    font-size: 0.75rem;
+                                    color: #6b7280;
+                                "
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    width="18"
+                                    height="18"
+                                    aria-hidden="true"
+                                    style="color: #0f9ccf"
+                                >
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    />
+                                    <path
+                                        d="M12 6v6l4 2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    />
+                                </svg>
+                                런칭 준비 중 · 세부 약관 공개 예정
+                            </div>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon primary">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="18"
+                                        height="18"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            d="M19 5L5 19"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                        />
+                                        <circle
+                                            cx="8.5"
+                                            cy="8.5"
+                                            r="2.5"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            fill="none"
+                                        />
+                                        <circle
+                                            cx="15.5"
+                                            cy="15.5"
+                                            r="2.5"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            fill="none"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-label">리워드 목표</div>
+                                    <div class="stat-value">결제액의 130%</div>
+                                    <div class="stat-sub">
+                                        누적 달성 시 지급
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon mint">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="18"
+                                        height="18"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            d="M20 6L9 17l-5-5"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-label">리워드 적립</div>
+                                    <div class="stat-value">매출의 60%</div>
+                                    <div class="stat-sub">
+                                        모든 주문에서 적립
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon primary">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="18"
+                                        height="18"
+                                        aria-hidden="true"
+                                    >
+                                        <circle
+                                            cx="12"
+                                            cy="12"
+                                            r="10"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        />
+                                        <path
+                                            d="M12 6v6l4 2"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-label">파트너 정산</div>
+                                    <div class="stat-value">매출의 5%</div>
+                                    <div class="stat-sub">월 1회 · D+15</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-divider"></div>
+                    <div class="hero-cta-container">
+                        <button onclick="showModal()" class="hero-cta-button">
+                            ₩110,000 사전예약 시작하기
+                            <svg
+                                style="transition: transform 0.2s"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M5 12h14" />
+                                <path d="M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 계산기 -->
+            <section id="calculator" class="section">
+                <div class="section-header">
+                    <div class="section-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        <span class="eyebrow-text">CALCULATOR</span>
+                    </div>
+                    <h3 class="section-title">파트너 정산 계산기</h3>
+                    <p class="section-subtitle">
+                        상품 판매가를 입력하면 예상 파트너 정산액(5%)을 확인할
+                        수 있습니다.
+                    </p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="card">
+                    <div class="calculator-grid">
+                        <div class="calc-input-group">
+                            <label class="calc-label">상품 판매가 (P)</label>
+                            <div class="calc-input-wrapper">
+                                <input
+                                    id="price-input"
+                                    type="number"
+                                    min="0"
+                                    step="1000"
+                                    class="calc-input"
+                                    value="100000"
+                                />
+                                <span class="calc-unit">KRW</span>
+                            </div>
+                        </div>
+                        <div class="calc-result-box">
+                            <div class="calc-result-label">
+                                예상 파트너 정산액 (5%)
+                            </div>
+                            <div id="calc-partnerFee" class="calc-result-value">
+                                ₩5,000
+                            </div>
+                            <div class="calc-result-note">
+                                ※ 실제 정산은 취소·환불·부정거래 제외, 월 1회
+                                D+15 기준
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 파트너스 -->
+            <section id="partners" class="section">
+                <div class="section-header">
+                    <div class="section-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        <span class="eyebrow-text">PARTNERS</span>
+                    </div>
+                    <h3 class="section-title">파트너스(5%) 프로그램</h3>
+                    <p class="section-subtitle">
+                        사전예약자 한정 · 사전예약 종료 후 신규 모집 영구 종료
+                    </p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="card">
+                    <div
+                        style="
+                            margin-top: 0.5rem;
+                            font-size: 0.875rem;
+                            color: #374151;
+                        "
+                    >
+                        추적 매출의 <b>5%</b>를 월 1회 <b>D+15</b>에 정산합니다.
+                        취소/환불/부정거래는 제외되며, 링크·쿠폰·QR로
+                        트래킹합니다.
+                    </div>
+                    <div class="info-box">
+                        <div class="info-title">파트너스 모집 정책 (중요)</div>
+                        <div class="info-content">
+                            파트너스는
+                            <b>사전예약 기간(2025-11-19~2025-12-31)</b>에
+                            <b>사전예약을 완료한 회원</b>만 신청·승인됩니다.
+                            <u
+                                >사전예약 종료 후에는 파트너스 신규 모집을 영구
+                                종료</u
+                            >합니다.
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-title">
+                            고유번호 발급 · 양도 · 안전거래 (중요)
+                        </div>
+                        <ul class="info-list">
+                            <li>
+                                사전예약 <b>1건당 파트너 고유번호 1개</b>가
+                                발급됩니다.
+                            </li>
+                            <li>
+                                고유번호는
+                                <b>운영사 승인 하에 다회 양도/양수</b>가
+                                가능합니다(유·무상 모두 허용, 사기·담합 적발 시
+                                직권 말소).
+                            </li>
+                            <li>
+                                <b>안전한 거래 플랫폼(예정)</b>을 통해서만
+                                양도/양수가 가능하며, 플랫폼 외 개인 간 거래는
+                                무효 처리됩니다.
+                            </li>
+                            <li>
+                                양도 시 <b>명의 변경 및 KYC</b>(본인 확인)가
+                                필수이며, 승인 없는 거래는 무효 처리됩니다.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-title">회수 · 말소 조건</div>
+                        <ul class="info-list">
+                            <li>
+                                <b>12개월 이상</b> 해당 고유번호를 통한
+                                <b>신규 소비자 등록/매칭 실적이 없는 경우</b>
+                            </li>
+                            <li>
+                                <b>광고/브랜딩/표시광고 정책 위반</b>(키워드
+                                입찰, 허위·과장, 스팸, 상표권 침해 등)
+                            </li>
+                            <li>
+                                <b>안전거래 플랫폼 미준수</b> 또는 승인 없는
+                                양도/양수
+                            </li>
+                            <li>
+                                <b>사기·담합·부정거래</b> 또는 관련 법령 위반
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(100)" class="faq-button">
+                                <span class="faq-question"
+                                    >고유번호는 어떻게 거래하나요?</span
+                                >
+                                <span id="faq-icon-100" class="faq-icon"
+                                    >+</span
+                                >
+                            </button>
+                            <div id="faq-content-100" class="faq-answer hidden">
+                                운영사가 제공하는 안전한 거래 플랫폼(예정)에서만
+                                다회 양도/양수가 가능합니다. 플랫폼 외 개인 간
+                                거래는 승인되지 않으며 무효 처리됩니다.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(101)" class="faq-button">
+                                <span class="faq-question"
+                                    >고유번호가 회수·말소되는 경우는?</span
+                                >
+                                <span id="faq-icon-101" class="faq-icon"
+                                    >+</span
+                                >
+                            </button>
+                            <div id="faq-content-101" class="faq-answer hidden">
+                                12개월 이상 신규 소비자 등록이 없거나,
+                                광고/브랜딩 정책 위반, 안전거래 미준수,
+                                사기·담합 등 부정행위가 확인될 경우 회수 또는
+                                말소될 수 있습니다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="partner-form-container">
+                        <div class="partner-form-title">파트너스 신청</div>
+                        <p class="partner-form-subtitle">
+                            사전예약 완료 계정으로만 신청할 수 있습니다. 승인 시
+                            전용 파트너 코드가 발급됩니다.
+                        </p>
+                        <div id="partner-form-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 환불 정책 -->
+            <section id="refund" class="section">
+                <div class="section-header">
+                    <div class="section-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        <span class="eyebrow-text">POLICY</span>
+                    </div>
+                    <h3 class="section-title">환불 · 청약철회 안내</h3>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="card">
+                    <ul class="policy-list">
+                        <li>
+                            <b>사전예약 취소(론칭 전)</b>: 론칭 전까지는
+                            언제든지 전액 환불 가능합니다.
+                        </li>
+                        <li>
+                            <b>바우처 발급 후</b>: 발급일로부터 <b>7일 이내</b>
+                            <b>미사용</b> 상태면 전액 환불 가능합니다.
+                        </li>
+                        <li>
+                            <b>환불 불가</b>: 아래 사유에 해당하는 경우 환불이
+                            제한됩니다 — <b>7일 경과</b>,
+                            <b>일부라도 사용/양도</b>한 경우,
+                            <b>사은품·추가 혜택</b>을 수령하고 미반환인 경우.
+                        </li>
+                        <li>
+                            <b>예외</b>: 하자 등 법령상 청약철회가 가능한 사유가
+                            있는 경우에는 관련 법령에 따릅니다.
+                        </li>
+                        <li>
+                            <b>양도/거래</b>: 고유번호 양도·거래 후에는 환불이
+                            제한되며, 부정거래 적발 시 환불이 불가합니다.
+                        </li>
+                    </ul>
+                    <div class="policy-note">
+                        ※ 전자상거래법 등 관계 법령에 따른 청약철회 제한 사유
+                        고지. 상세 약관 및 개인정보 처리방침은 론칭 시 최종
+                        고지됩니다.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 코드 조회 -->
+            <section id="lookup" class="section">
+                <div class="section-header">
+                    <div class="section-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        <span class="eyebrow-text">LOOKUP</span>
+                    </div>
+                    <h3 class="section-title">파트너스 코드 조회</h3>
+                    <p class="section-subtitle">
+                        이름 또는 연락처 또는 이메일 중 하나를 입력해
+                        검색하세요.
+                    </p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="card">
+                    <form id="lookup-form" class="lookup-form">
+                        <input
+                            id="lookup-name"
+                            class="lookup-input"
+                            placeholder="이름 (예: 홍길동)"
+                        />
+                        <input
+                            id="lookup-phone"
+                            class="lookup-input"
+                            placeholder="연락처 (예: 010-0000-0000)"
+                        />
+                        <input
+                            id="lookup-email"
+                            type="email"
+                            class="lookup-input"
+                            placeholder="이메일 (you@example.com)"
+                        />
+                        <button type="submit" class="lookup-button">
+                            조회하기
+                        </button>
+                    </form>
+                    <div id="lookup-results" class="lookup-results">
+                        <div class="lookup-no-results">
+                            조회 결과가 없습니다.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" class="section" style="padding-bottom: 4rem">
+                <div class="section-header">
+                    <div class="section-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        <span class="eyebrow-text">FAQ</span>
+                    </div>
+                    <h3 class="section-title">자주 묻는 질문</h3>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="card">
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(0)" class="faq-button">
+                                <span class="faq-question"
+                                    >정말 130%를 모두 받나요?</span
+                                >
+                                <span id="faq-icon-0" class="faq-icon">+</span>
+                            </button>
+                            <div id="faq-content-0" class="faq-answer hidden">
+                                약관상 참여/유효기간/예외 조건을 충족하면 누적
+                                지급됩니다. 리워드 재원은 매출×60%에서 적립되며
+                                목표 달성 시 지급됩니다.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(1)" class="faq-button">
+                                <span class="faq-question"
+                                    >사전예약 환불은 가능할까요?</span
+                                >
+                                <span id="faq-icon-1" class="faq-icon">+</span>
+                            </button>
+                            <div id="faq-content-1" class="faq-answer hidden">
+                                론칭 전에는 전액 환불 가능합니다. 바우처 발급
+                                후에는 발급일로부터 7일 이내 미사용 상태면 전액
+                                환불 가능하나, 7일 경과 또는
+                                사용/양도/사은품·혜택 수령 시 환불이 제한됩니다.
+                                하자 등 법정 사유는 관련 법령에 따릅니다.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(2)" class="faq-button">
+                                <span class="faq-question"
+                                    >파트너 정산 기준은?</span
+                                >
+                                <span id="faq-icon-2" class="faq-icon">+</span>
+                            </button>
+                            <div id="faq-content-2" class="faq-answer hidden">
+                                전용 링크/쿠폰/QR로 추적하며
+                                취소·환불·부정거래를 제외하고 월 1회 D+15 일괄
+                                정산합니다.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(3)" class="faq-button">
+                                <span class="faq-question"
+                                    >그룹형 지급은 어떻게 진행되나요?</span
+                                >
+                                <span id="faq-icon-3" class="faq-icon">+</span>
+                            </button>
+                            <div id="faq-content-3" class="faq-answer hidden">
+                                모든 리워드 지급은 오직 그룹(5인) 단위로 동시에
+                                달성됩니다. 개인 누적형은 제공하지 않으며,
+                                그룹이 완성되면 다음 대기 그룹으로 전환됩니다.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(4)" class="faq-button">
+                                <span class="faq-question"
+                                    >사전예약을 하지 않았는데 파트너스 신청
+                                    가능한가요?</span
+                                >
+                                <span id="faq-icon-4" class="faq-icon">+</span>
+                            </button>
+                            <div id="faq-content-4" class="faq-answer hidden">
+                                아니요. 파트너스는 사전예약
+                                기간(2025-11-19~2025-12-31)에 사전예약을 완료한
+                                회원만 신청·승인됩니다. 기간 종료 후에는
+                                파트너스 신규 모집을 영구 종료합니다.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(5)" class="faq-button">
+                                <span class="faq-question"
+                                    >파트너 고유번호 발급·양도는 어떻게
+                                    되나요?</span
+                                >
+                                <span id="faq-icon-5" class="faq-icon">+</span>
+                            </button>
+                            <div id="faq-content-5" class="faq-answer hidden">
+                                사전예약 1건당 파트너 고유번호 1개가 발급됩니다.
+                                운영사 승인 하에 다회 양도/양수가 가능하며, 명의
+                                변경 및 KYC(본인확인)가 필수입니다. 승인 없는
+                                거래나 사기·담합 적발 시 직권 말소됩니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 푸터 -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-grid">
+                        <div>
+                            <div class="footer-info-title">
+                                리워드몰 사전예약
+                            </div>
+                            <div class="footer-info-subtitle">
+                                기간: 2025-11-19 ~ 2025-12-31 23:59 (KST) ·
+                                예약금 ₩110,000
+                            </div>
+                        </div>
+                        <div class="footer-actions">
+                            <button onclick="showModal()" class="footer-button">
+                                예약하기
+                            </button>
+                            <a href="#partners" class="footer-link"
+                                >파트너스 정책 보기</a
+                            >
+                            <a href="#lookup" class="footer-link">코드 조회</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- 예약 모달 -->
+            <div id="modal" class="modal-overlay hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title-group">
+                            <div class="modal-subtitle">사전예약 신청</div>
+                            <div class="modal-title">₩110,000 바우처 전환</div>
+                        </div>
+                        <button onclick="hideModal()" class="modal-close">
+                            닫기
+                        </button>
+                    </div>
+                    <form id="reserve-form" class="modal-form">
+                        <div class="form-group">
+                            <label class="form-label">이름</label>
+                            <input
+                                id="form-name"
+                                class="form-input"
+                                required
+                                placeholder="홍길동"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">연락처</label>
+                            <input
+                                id="form-phone"
+                                class="form-input"
+                                required
+                                placeholder="010-0000-0000"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">이메일</label>
+                            <input
+                                id="form-email"
+                                type="email"
+                                class="form-input"
+                                required
+                                placeholder="you@example.com"
+                            />
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">입금일시</label>
+                                <input
+                                    id="form-depositAt"
+                                    type="datetime-local"
+                                    class="form-input"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">입금자명</label>
+                                <input
+                                    id="form-depositorName"
+                                    class="form-input"
+                                    required
+                                    placeholder="예: 홍길동"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"
+                                >파트너스 코드 (추천인, 선택)</label
+                            >
+                            <input
+                                id="form-partnerCode"
+                                class="form-input"
+                                placeholder="예: ABC123"
+                            />
+                            <div class="form-hint">
+                                추천인이 있다면 입력하세요. 없으면 비워두셔도
+                                됩니다.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">동의</label>
+                            <div class="form-checkbox-group">
+                                <input
+                                    id="form-agree"
+                                    type="checkbox"
+                                    required
+                                />
+                                <span
+                                    >사전예약 약관(<a
+                                        href="#refund"
+                                        style="
+                                            text-decoration: underline;
+                                            text-underline-offset: 2px;
+                                        "
+                                        >환불·청약철회</a
+                                    >
+                                    포함) 및 개인정보 처리에 동의합니다.</span
+                                >
+                            </div>
+                        </div>
+                        <button type="submit" class="form-submit">
+                            ₩110,000 결제 진행
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 코드 모달 -->
+            <div id="code-modal" class="modal-overlay hidden">
+                <div class="code-modal-content">
+                    <div class="code-modal-title">파트너스 코드 발급</div>
+                    <div id="modal-code" class="code-modal-code"></div>
+                    <div class="code-modal-description">
+                        사전예약 1건당 1개의 고유번호가 부여됩니다. 운영사 승인
+                        하에 다회 양도/양수가 가능합니다.
+                    </div>
+                    <div class="code-modal-actions">
+                        <button onclick="copyCode()" class="code-button-copy">
+                            코드 복사
+                        </button>
+                        <button
+                            onclick="hideCodeModal()"
+                            class="code-button-close"
+                        >
+                            닫기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
