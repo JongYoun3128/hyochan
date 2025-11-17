@@ -12,7 +12,7 @@
 // 여기에 구글 Apps Script 웹 앱 URL을 입력하세요
 // 가이드: 구글시트_연동_가이드.md 파일 참조
 const GOOGLE_SHEET_URL =
-    "https://script.google.com/macros/s/AKfycbyVUZPJAHX2wSbICUZoe-D2xkSd7enUCIahSSoilcnveJ1FxxsmNkIoWTJH69BHICL-pw/exec";
+    "https://script.google.com/macros/s/AKfycbyYPlLiFin4ymzwAMPafNt1IcU9rybBCoUxXBgvJprVReeicZhdL96UKXrhZ6iLU-qp/exec";
 
 /************************************
  * 유틸 & 테스트 가능한 순수 함수
