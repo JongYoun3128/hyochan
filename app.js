@@ -12,7 +12,7 @@
 // 여기에 구글 Apps Script 웹 앱 URL을 입력하세요
 // 가이드: 구글시트_연동_가이드.md 파일 참조
 const GOOGLE_SHEET_URL =
-    "https://script.google.com/macros/s/AKfycbzdqOBhz_XWmNbym4_-ZVie69vUoGD16xx6NQ66_69qQJ4vWJBB5JJxkl-ohN6W6DWnRg/exec";
+    "https://script.google.com/macros/s/AKfycbyVUZPJAHX2wSbICUZoe-D2xkSd7enUCIahSSoilcnveJ1FxxsmNkIoWTJH69BHICL-pw/exec";
 
 /************************************
  * 유틸 & 테스트 가능한 순수 함수
@@ -134,6 +134,45 @@ async function sendToGoogleSheet(data) {
     } catch (error) {
         console.error("구글 시트 전송 실패:", error);
         return { success: false, message: error.message };
+    }
+}
+
+/************************************
+ * 구글 시트 조회 함수
+ ************************************/
+async function searchFromGoogleSheet({ name, phone, email }) {
+    // 구글 시트 URL이 설정되지 않은 경우
+    if (!GOOGLE_SHEET_URL || GOOGLE_SHEET_URL.includes("YOUR_SCRIPT_ID")) {
+        console.warn(
+            "구글 시트 URL이 설정되지 않았습니다. localStorage에서만 조회됩니다."
+        );
+        return { success: false, data: [] };
+    }
+
+    try {
+        // 쿼리 파라미터 생성
+        const params = new URLSearchParams({
+            action: "search",
+            name: name || "",
+            phone: phone || "",
+            email: email || "",
+        });
+
+        const response = await fetch(
+            `${GOOGLE_SHEET_URL}?${params.toString()}`
+        );
+        const result = await response.json();
+
+        if (result.status === "success") {
+            console.log("구글 시트 조회 성공:", result.data);
+            return { success: true, data: result.data };
+        } else {
+            console.error("구글 시트 조회 실패:", result.message);
+            return { success: false, data: [] };
+        }
+    } catch (error) {
+        console.error("구글 시트 조회 에러:", error);
+        return { success: false, data: [] };
     }
 }
 
@@ -508,7 +547,7 @@ function setupEventListeners() {
     // 조회 폼 제출
     const lookupForm = document.getElementById("lookup-form");
     if (lookupForm) {
-        lookupForm.addEventListener("submit", (e) => {
+        lookupForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             const lookup = {
                 name: document.getElementById("lookup-name").value,
@@ -519,9 +558,50 @@ function setupEventListeners() {
                 alert("이름 또는 연락처 또는 이메일 중 하나는 입력해 주세요.");
                 return;
             }
+
+            // 조회 버튼 비활성화
+            const submitBtn = lookupForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = "조회 중...";
+
             state.lookup = lookup;
-            state.lookupResults = findCodesByQuery(state.records, lookup);
+
+            // 로컬 스토리지에서 검색
+            const localResults = findCodesByQuery(state.records, lookup);
+
+            // 구글 시트에서 검색
+            const googleResult = await searchFromGoogleSheet(lookup);
+
+            // 결과 병합 (중복 제거: 코드 기준)
+            const allResults = [...localResults];
+            const localCodes = new Set(localResults.map((r) => r.code));
+
+            if (googleResult.success && googleResult.data) {
+                googleResult.data.forEach((item) => {
+                    if (!localCodes.has(item.code)) {
+                        allResults.push(item);
+                    }
+                });
+            }
+
+            state.lookupResults = allResults;
+
+            // 버튼 다시 활성화
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+
             renderLookupResults();
+
+            // 조회 결과 표시
+            if (allResults.length > 0) {
+                const source = googleResult.success
+                    ? "구글 시트 및 로컬"
+                    : "로컬";
+                console.log(
+                    `${allResults.length}개의 결과를 찾았습니다. (출처: ${source})`
+                );
+            }
         });
     }
 }
